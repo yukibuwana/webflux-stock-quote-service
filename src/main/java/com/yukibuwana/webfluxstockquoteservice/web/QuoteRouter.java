@@ -17,6 +17,6 @@ public class QuoteRouter {
     public RouterFunction<ServerResponse> route(QuoteHandler quoteHandler) {
         return RouterFunctions.route(
                 GET("/quotes").and(accept(MediaType.APPLICATION_JSON)), quoteHandler::fetchQuotes)
-                .andRoute(GET("/quotes").and(accept(MediaType.APPLICATION_STREAM_JSON)), quoteHandler::fetchQuotes);
+                .andRoute(GET("/quotes").and(accept(MediaType.APPLICATION_STREAM_JSON)), quoteHandler::streamQuotes);
     }
 }
